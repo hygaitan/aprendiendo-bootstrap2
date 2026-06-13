@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ 
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+  
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="blog.css" rel="stylesheet" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol
+        id="aperture"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container">
+      <header class="border-bottom lh-1 py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">
+            <a class="link-secondary" href="#">Ingresar</a>
+          </div>
+          <div class="col-4 text-center">
+            <a
+              class="blog-header-logo text-body-emphasis text-decoration-none"
+              href="#"
+              >Manga Dragon Ball Super</a
+            >
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="link-secondary" href="#" aria-label="Search">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="mx-3"
+                role="img"
+                viewBox="0 0 24 24"
+              >
+                <title>Search</title>
+                <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                <path d="M21 21l-5.2-5.2"></path>
+              </svg>
+            </a>
+            <a class="btn btn-sm btn-outline-secondary" href="#">Buscar</a>
+          </div>
+        </div>
+      </header>
+      <div class="nav-scroller py-1 mb-3 border-bottom">
+        <nav class="nav nav-underline justify-content-between">
+          <a class="nav-item nav-link link-body-emphasis active" href="#"
+            >Bills</a
+          >
+          <a class="nav-item nav-link link-body-emphasis" href="#">Wiss</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#"
+            >Zeno Zama</a
+          >
+          <a class="nav-item nav-link link-body-emphasis" href="#">Goku</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Vegeta</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Granola</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Gas</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Freezer</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Bardock</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Monite</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Elec</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Gine</a>
+        </nav>
+      </div>
+    </div>
+    <main class="container">
+      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis Manga">
+        <div class="col-lg-6 px-0">
+          <h1 class="display-4 fst-italic">
+            Dragon ball super: saga Granola
+          </h1>
+          <p class="lead my-3 bg-danger-subtle">
+           Aqui en esta pagina podemos ver el Manga
+           de la saga de Granola y la de Gas totalmente 
+           gratis.
+          </p>
+          <p class="lead mb-0">
+            <a href="#" class="leon" 
+              >Ver ahora el Manga</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+          >
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary-emphasis"
+                >Manga</strong
+              >
+              <h3 class="mb-0">Saga de Granola</h3>
+              <div class="mb-1 text-body-secondary">Enero 21 del 2021</div>
+              <p class="card-text mb-auto">
+               Aqui puedes encontrar la saga de Granola con 
+               todos su capitulos completos.
+              </p>
+              <a
+                href="#"
+                class="icon-link gap-1 icon-link-hover stretched-link"
+              >
+                Ver Manga completo.
+                <svg class="bi" aria-hidden="true">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="col-md-4">
+              <img class="img-fluid" src="granola.jpg" alt="imagen 1">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+          >
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-success-emphasis"
+                >Ver Manga</strong
+              >
+              <h3 class="mb-0">Saga de Gas</h3>
+              <div class="mb-1 text-body-secondary">Enero 20 del 2021</div>
+              <p class="mb-auto">
+               Aqui puedes encontrar la parte de la saga de Gas
+               completa y gratis.
+              </p>
+              <a
+                href="#"
+                class="icon-link gap-1 icon-link-hover stretched-link"
+              >
+                Ver Manga completo.
+                <svg class="bi" aria-hidden="true">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="col-md-4">
+              <img class="img-fluid" src="gas.jpg" alt="imagen 2">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md-8">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">Manga de Dragon Ball super</h3>
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1">Saga de Granola</h2>
+            <p class="blog-post-meta">
+              Enero 21, 2021 <a href="#"></a>
+            </p>
+            <p>
+             Aqui en esta pagina nosotros te vamos a mostrar el
+             Manga completo de la saga de Granola y de Gas, pero en 
+             este parrafo te vamos a explicar detalle por detalle lo 
+             que pasa en la saga de Granola.
+            </p>
+            <hr />
+            <p>
+             
+              La Saga de Granola ocurre después de la derrota de Moro en el manga de Dragon Ball Super.
+              La historia presenta a Granola, el último sobreviviente de la raza cerealiana,
+              cuyo planeta fue destruido décadas atrás por los saiyajines bajo las órdenes de Freezer.
+              Desde niño, Granola vivió consumido por el deseo de vengarse de los responsables de la muerte de su pueblo.
+            </p>
+            <h2></h2>
+            <p></p>
+            <blockquote class="blockquote">
+              <p></p>
+            </blockquote>
+            <p>
+             Granola trabaja como cazarrecompensas y mantiene una profunda enemistad contra los saiyajines.
+             Cuando descubre que Goku y Vegeta siguen vivos, los considera culpables de los crímenes cometidos por sus antepasados,
+             y decide convertirlos en sus nuevos objetivos.
+            </p>
+            <h3></h3>
+            <p>
+             En el planeta Cereal existen unas Esferas del Dragón especiales creadas por el dragón Toronbo.
+             Granola reúne las esferas y pide convertirse en el guerrero más poderoso del universo.
+             El dragón concede el deseo a cambio de sacrificar casi toda su esperanza de vida, dejándole solo unos pocos años para vivir.
+            </p>
+            <p>
+             Mientras tanto, los Heeters, una organización criminal formada por Elec, Gas, Oil y Macki,
+             manipulan los acontecimientos para beneficiarse. Su verdadero objetivo es eliminar a Freezer y dominar el universo,
+             utilizando a Granola y a los saiyajines como piezas de su plan.
+            </p>
+            
+            <p>
+             Goku y Vegeta llegan al planeta Cereal y se enfrentan a Granola.
+             Durante la batalla, se demuestra que el nuevo poder de Granola supera incluso al Ultra Instinto de Goku,
+             y obliga a Vegeta a mostrar una transformación completamente nueva llamada Ultra Ego,
+             un poder inspirado en los Dioses de la Destrucción.
+            </p>
+
+            <p>
+             El Ultra Ego permite que Vegeta aumente su poder a medida que recibe daño.
+             Aunque logra poner en aprietos a Granola, la pelea demuestra que ambos guerreros se encuentran en niveles extraordinariamente altos.
+             Sin embargo, ninguno consigue una victoria definitiva.
+            </p>
+    
+            <p>
+             Conforme avanza la historia, Granola descubre una verdad impactante:
+             no todos los saiyajines fueron responsables de la tragedia de su pueblo.
+             En particular, Bardock, el padre de Goku, había protegido a Granola y a su madre durante la invasión al planeta Cereal.
+            </p>
+            
+            <p>
+             Esta revelación cambia completamente la perspectiva de Granola.
+             El odio que había acumulado durante toda su vida comienza a desaparecer al comprender que fue manipulado,
+             y que la realidad era mucho más compleja de lo que imaginaba.
+            </p>
+          </article>
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1">saga de Gas</h2>
+            <p class="blog-post-meta">
+              Enero 20, 2021  <a href="#"></a>
+            </p>
+            <p>
+             Cuando la situación parece calmarse, Elec realiza su movimiento más importante.
+             Utiliza las Esferas del Dragón para convertir a su hermano Gas en el guerrero más fuerte del universo,
+             superando incluso el poder obtenido por Granola.
+            </p>
+            <blockquote>
+              <p>
+             Gas había sido un guerrero extremadamente poderoso desde joven, pero siempre estuvo sometido a la voluntad de Elec.
+             Tras recibir el deseo, obtiene un aumento gigantesco de fuerza y comienza a derrotar fácilmente a Granola, Vegeta y Goku.
+              </p>
+            </blockquote>
+            <p>
+             Durante la batalla contra Gas se revela más información sobre el pasado de Bardock.
+             Se muestra que, años atrás, Bardock había derrotado a Gas en combate,
+             y había demostrado una determinación extraordinaria para proteger a los inocentes.
+             Estos recuerdos inspiran a Goku a evolucionar su propio Ultra Instinto.
+            </p>
+            
+            <p>
+             Goku desarrolla una versión más personal del Ultra Instinto, conocida por los fanáticos como "True Ultra Instinct".
+             En lugar de imitar completamente la serenidad de los ángeles, aprende a combinar sus emociones con su estilo de combate,
+             logrando utilizar mejor su verdadero potencial.
+            </p>
+          </article>
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1">Descenlace de la saga de Granola y Gas</h2>
+            <p class="blog-post-meta">
+              Agosto 20, 2022  <a href="#"></a>
+            </p>
+            <p>
+             Mientras la batalla continúa, el costo del deseo de Gas comienza a manifestarse.
+             Su cuerpo envejece rápidamente porque el poder obtenido mediante Toronbo consume su propia vida.
+             Aunque sigue aumentando de fuerza, cada transformación lo acerca más a la muerte.
+            </p>
+            <p>
+             Finalmente, cuando Gas parece estar a punto de acabar con todos, aparece Freezer de forma inesperada.
+             Tras entrenar durante diez años en una dimensión especial, regresa con una nueva transformación llamada Black Freezer.
+             Con una facilidad sorprendente, derrota y mata a Gas,
+             demostrando que ahora se encuentra en un nivel muy superior al de Goku y Vegeta.
+            </p>
+            <p>
+             La saga concluye con la muerte de Gas y Elec,
+             el fin de los planes de los Heeters y la reconciliación de Granola con su pasado.
+             Goku y Vegeta comprenden que aún tienen mucho camino por recorrer para superar a Freezer,
+             mientras que Granola decide aprovechar el tiempo de vida que le queda para vivir en paz y honrar la memoria de su pueblo.
+            </p>
+          </article>
+          
+        </div>
+        <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem">
+            <div class="p-4 mb-3 bg-body-tertiary rounded">
+              <h4 class="fst-italic">Momentos</h4>
+              <p class="mb-0">
+               Aqui mostraremos los mejores momentos que van a romper el
+               internet cuando animen la saga de Granola y de Gas.
+              </p>
+            </div>
+            <div>
+              <h4 class="fst-italic">Momentos Historicos</h4>
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                    href="#"
+                  >
+                    <div class="col-sm-4">
+                      <img class="img-fluid imagen-pequena" src="vegeta ultra ego.jpg" alt="imagen gas">
+                    </div>
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">Vegeta consigue el Ultra Ego.</h6>
+                      <small class="text-body-secondary"
+                        >Marzo 22, 2021</small
+                      >
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                    href="#"
+                  >
+                    <div class="col-sm-4">
+                      <img class="img-fluid imagen-pequena" src="goku y vegeta contra gas.jpg" alt="imagen goku y vegeta"> 
+                    </div>
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">Goku y vegeta contra Gas.</h6>
+                      <small class="text-body-secondary"
+                        >Mayo 19, 2021</small
+                      >
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                    href="#"
+                  >
+                    <div class="col-sm-4">
+                      <img class="img-fluid imagen-pequena" src="black freezer.jpg" alt="imagen black freezer">
+                    </div>
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">
+                        Freezer se convierte en Black Freezer.
+                      </h6>
+                      <small class="text-body-secondary"
+                        >Agosto 12, 2021</small
+                      >
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="p-4">
+              <h4 class="fst-italic">Creaciones de Aquira Toriyama.</h4>
+              <ol class="list-unstyled mb-0">
+                <li><a href="#">Dragon Ball clasico 1986</a></li>
+                <li><a href="#">Dragon Ball Z 1996</a></li>
+                <li><a href="#">Dragon Ball Super 2015 hasta el 2018</a></li>
+                <li><a href="#">Dragon Ball super: Broly Diciembre 2018</a></li>
+                <li><a href="#">Dragon Ball Super: Super Hero Junio 2022</a></li>
+                <li><a href="#">Dragon Ball Daima Octubre 2024</a></li>
+
+              </ol>
+            </div>
+            <div class="p-4">
+              <h4 class="fst-italic">Creadores Manga y Animacion</h4>
+              <ol class="list-unstyled">
+                <li><a href="#">Akira Toriyama</a></li>
+                <li><a href="#">Toyotaro</a></li>
+                <li><a href="#">Toei Animation</a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+      <p>
+        Manga creado por 
+        <a href="https://getbootstrap.com/">Aquira Toriyama</a> by
+        <a href="https://x.com/mdo">Toyotaro</a>.
+      </p>
+      <p class="mb-0"><a href="#">Descansa en paz Aquira Toriyama</a></p>
+    </footer>
+    <script src="color-modes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
